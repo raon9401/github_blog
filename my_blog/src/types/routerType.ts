@@ -3,4 +3,5 @@ export interface RouterBase {
   path: string; // 페이지 경로
   label: string; // 사이드바에 표시할 페이지 이름
   element: React.ReactNode; // 페이지 엘리먼트
+  isCategory?: boolean;
 }

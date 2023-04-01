@@ -1,17 +1,27 @@
 import { BsGithub } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { handleWebPageLink } from "../../hooks/handleLink";
-import { ROUTER_DATA } from "../../routers/RouterData";
+import { ROUTER_DATA } from "../../constants/RouterData";
 
 export const Sidenav = () => {
+  const location = useLocation();
+
   return (
-    <nav className="side_nav">
+    <nav className="side_nav w-64">
       <section>
         <p className="border-b-2 font-bold text-xl py-3">Raon9401 Blog</p>
-        <div className="flex flex-col pt-20 gap-3">
+        <div className="flex flex-col pt-10">
           {ROUTER_DATA.map((item) => (
-            <Link key={item.id} to={item.path}>
-              {item.label}
+            <Link
+              key={item.id}
+              to={item.path}
+              className={`py-2 hover:bg-slate-300  ${
+                location.pathname === item.path
+                  ? "bg-slate-300"
+                  : "active:bg-slate-400"
+              }`}
+            >
+              <span className="pl-2">{item.label}</span>
             </Link>
           ))}
         </div>

@@ -1,5 +1,5 @@
 import { HomePage } from "../pages/HomePage";
-import { PortFolio } from "../pages/PortFolio";
+import { PortFolioPage } from "../pages/PortFolioPage";
 import { RouterBase } from "../types/routerType";
 
 export const ROUTER_DATA: RouterBase[] = [
@@ -8,11 +8,13 @@ export const ROUTER_DATA: RouterBase[] = [
     path: "/",
     label: "홈페이지",
     element: <HomePage />,
+    isCategory: true,
   },
   {
     id: 1,
     path: "/portfolio",
     label: "포트폴리오",
-    element: <PortFolio />,
+    element: <PortFolioPage />,
+    isCategory: true,
   },
 ];

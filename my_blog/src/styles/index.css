@@ -22,4 +22,16 @@
   .side_nav {
     @apply w-64 h-[100vh] border-r-2 px-3 flex flex-col justify-between;
   }
+
+  .contents_base {
+    @apply w-full h-[100vh];
+  }
+
+  .portfoilo_card {
+    @apply w-60 h-96 border-2 rounded-md  bg-slate-50;
+  }
+
+  .smallportfoilo_card {
+    @apply w-60 h-96 border-2 rounded-md  bg-slate-50  scale-50 cursor-pointer;
+  }
 }

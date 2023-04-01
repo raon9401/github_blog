@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ROUTER_DATA } from "./RouterData";
+import { ROUTER_DATA } from "../constants/RouterData";
 import { GeneralLayout } from "../layout/GeneralLayout";
 
 export const routers = createBrowserRouter(
