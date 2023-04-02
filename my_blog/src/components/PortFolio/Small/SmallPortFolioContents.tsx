@@ -31,8 +31,8 @@ export const SmallPortFolioContents = ({
   };
 
   return (
-    <section className="portfolio_card smallportfolio" onClick={handleTurn}>
-      <div className="pointer-events-none space-y-2 ">
+    <section className="portfolio_card smallportfolio " onClick={handleTurn}>
+      <div className="pointer-events-none space-y-2">
         <Contents size="small">{children}</Contents>
       </div>
     </section>
