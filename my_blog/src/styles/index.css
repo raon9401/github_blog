@@ -27,11 +27,11 @@
     @apply w-full h-[100vh];
   }
 
-  .portfoilo_card {
-    @apply w-60 h-96 border-2 rounded-md  bg-slate-50;
+  .portfolio_card {
+    @apply w-72 h-96 border-2 rounded-md p-2 bg-slate-50 space-y-2;
   }
 
-  .smallportfoilo_card {
-    @apply w-60 h-96 border-2 rounded-md  bg-slate-50  scale-50 cursor-pointer;
+  .smallportfolio {
+    @apply scale-75 cursor-pointer;
   }
 }

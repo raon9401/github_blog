@@ -29,12 +29,13 @@ export const PortFolioPage = () => {
       />
       <article className="absolute flex flex-grow">
         {MOCK_PORTFOLIO_LIST.map((item, index) => (
+          // 빈공간 채우는 용도의 div
           <div
             key={item}
-            className={`${cardNum === 0 && index === 0 && "pl-60"} ${
+            className={`${cardNum === 0 && index === 0 && "pl-72"} ${
               cardNum === MOCK_PORTFOLIO_LIST.length - 1 &&
               index === MOCK_PORTFOLIO_LIST.length - 1 &&
-              "pr-60"
+              "pr-72"
             }`}
           >
             {index === cardNum ? (

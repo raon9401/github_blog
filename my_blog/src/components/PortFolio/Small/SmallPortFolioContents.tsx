@@ -1,3 +1,5 @@
+import { Contents } from "../_Contents/Contents";
+
 type PortFolioProps = {
   children: string;
   cardNum: number;
@@ -21,8 +23,13 @@ export const SmallPortFolioContentsRight = ({
   };
 
   return (
-    <section className="smallportfoilo_card" onClick={handleTurnRight}>
-      {children}
+    <section
+      className="portfolio_card smallportfolio  animate-moving"
+      onClick={handleTurnRight}
+    >
+      <div className="pointer-events-none space-y-2 ">
+        <Contents>{children}</Contents>
+      </div>
     </section>
   );
 };
@@ -42,8 +49,10 @@ export const SmallPortFolioContentsLeft = ({
   };
 
   return (
-    <section className="smallportfoilo_card" onClick={handleTurnLeft}>
-      {children}
+    <section className="portfolio_card smallportfolio" onClick={handleTurnLeft}>
+      <div className="pointer-events-none space-y-2">
+        <Contents>{children}</Contents>
+      </div>
     </section>
   );
 };
