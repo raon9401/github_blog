@@ -1,4 +1,4 @@
-import { SmallContents } from "../_Contents/SmallDesign/SmallContents";
+import { Contents } from "../_Contents/Contents";
 
 type PortFolioProps = {
   children: string;
@@ -33,7 +33,7 @@ export const SmallPortFolioContents = ({
   return (
     <section className="portfolio_card smallportfolio" onClick={handleTurn}>
       <div className="pointer-events-none space-y-2 ">
-        <SmallContents>{children}</SmallContents>
+        <Contents size="small">{children}</Contents>
       </div>
     </section>
   );

@@ -3,17 +3,20 @@ import { handleWebPageLink } from "../../../hooks/handleLink";
 
 type PortFolioProps = {
   children: string;
-  setOpenDetail: React.Dispatch<React.SetStateAction<boolean>>;
+  size: "basic" | "small";
+  setOpenDetail?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const Contents = ({ children, setOpenDetail }: PortFolioProps) => {
+export const Contents = ({ children, setOpenDetail, size }: PortFolioProps) => {
   return (
     <>
       <section className="font-bold border-b-2 flex justify-between">
         <span>{children}</span>
-        <button type="button" onClick={() => setOpenDetail(true)}>
-          자세히 보기
-        </button>
+        {size === "basic" && setOpenDetail && (
+          <button type="button" onClick={() => setOpenDetail(true)}>
+            자세히 보기
+          </button>
+        )}
       </section>
       <section className="border-2 h-60 bg-slate-100 hover:opacity-20 cursor-pointer">
         메인컨텐츠 이미지

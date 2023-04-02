@@ -11,7 +11,9 @@ export const PortFolioContents = ({
 }: PortFolioProps) => {
   return (
     <section className="portfolio_card">
-      <Contents setOpenDetail={setOpenDetail}>{children}</Contents>
+      <Contents setOpenDetail={setOpenDetail} size="basic">
+        {children}
+      </Contents>
     </section>
   );
 };
