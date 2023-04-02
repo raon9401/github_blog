@@ -12,10 +12,15 @@ module.exports = {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(-360deg)" },
         },
+        openDetail: {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)" },
+        },
       },
       animation: {
-        turnRight: "turnRight 1s linear 1",
-        turnLeft: "turnLeft 1s linear 1",
+        turnRight: "turnRight 0.5s linear 1",
+        turnLeft: "turnLeft 0.5s linear 1",
+        openDetail: "openDetail 0.2s linear 1",
       },
     },
   },

@@ -8,11 +8,13 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
+    "@types/markdown-to-jsx": "^7.0.1",
     "@types/node": "^16.18.23",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
     "@types/react-icons": "^3.0.0",
     "@types/react-router-dom": "^5.3.3",
+    "markdown-to-jsx": "^7.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
@@ -22,6 +24,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prebuild": "python3 python/my_script.py",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
