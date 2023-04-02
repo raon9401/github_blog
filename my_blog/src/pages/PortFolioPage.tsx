@@ -20,7 +20,7 @@ export const PortFolioPage = () => {
   }, [isTurn]);
 
   return (
-    <section className="contents_base flex justify-center items-center bg-slate-200 relative">
+    <section className="contents_base flex justify-center items-center bg-slate-200 relative overflow-hidden">
       <BsGearWideConnected
         size="500"
         className={`${isTurn === 1 && "animate-turnRight"} ${
