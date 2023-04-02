@@ -34,4 +34,8 @@
   .smallportfolio {
     @apply scale-75 cursor-pointer;
   }
+
+  .contents_detail {
+    @apply w-4/5 h-5/6 absolute bg-white opacity-90 animate-openDetail p-4 overflow-y-scroll;
+  }
 }

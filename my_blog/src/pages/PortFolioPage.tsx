@@ -2,20 +2,26 @@ import { BsGearWideConnected } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { PortFolioContents } from "../components/PortFolio/Basic/PortFolioContents";
 import { MOCK_PORTFOLIO_LIST } from "../constants/mock";
-import {
-  SmallPortFolioContentsLeft,
-  SmallPortFolioContentsRight,
-} from "../components/PortFolio/Small/SmallPortFolioContents";
+import { SmallPortFolioContents } from "../components/PortFolio/Small/SmallPortFolioContents";
+import { ContentsDetail } from "../components/PortFolio/_Contents/Detail/ContentsDetail";
 
 export const PortFolioPage = () => {
   const [cardNum, setCardNum] = useState<number>(0);
-  const [isTurn, setIsTurn] = useState<-1 | 0 | 1>(0);
+  const [isTurn, setIsTurn] = useState<"leftTurn" | "stop" | "rightTurn">(
+    "stop"
+  );
+  const [openDetail, setOpenDetail] = useState<boolean>(false);
 
+  const PORTFOLIO_LENGTH = MOCK_PORTFOLIO_LIST.length;
+  const tailList = [
+    MOCK_PORTFOLIO_LIST[0],
+    MOCK_PORTFOLIO_LIST[PORTFOLIO_LENGTH - 1],
+  ];
   useEffect(() => {
-    if (isTurn !== 0) {
+    if (isTurn !== "stop") {
       setTimeout(() => {
-        setIsTurn(0);
-      }, 1000);
+        setIsTurn("stop");
+      }, 500);
     }
   }, [isTurn]);
 
@@ -23,48 +29,76 @@ export const PortFolioPage = () => {
     <section className="contents_base flex justify-center items-center bg-slate-200 relative overflow-hidden">
       <BsGearWideConnected
         size="500"
-        className={`${isTurn === 1 && "animate-turnRight"} ${
-          isTurn === -1 && "animate-turnLeft"
+        className={`${isTurn === "rightTurn" && "animate-turnRight"} ${
+          isTurn === "leftTurn" && "animate-turnLeft"
         } opacity-25`}
       />
       <article className="absolute flex flex-grow">
         {MOCK_PORTFOLIO_LIST.map((item, index) => (
-          // 빈공간 채우는 용도의 div
-          <div
-            key={item}
-            className={`${cardNum === 0 && index === 0 && "pl-72"} ${
-              cardNum === MOCK_PORTFOLIO_LIST.length - 1 &&
-              index === MOCK_PORTFOLIO_LIST.length - 1 &&
-              "pr-72"
-            }`}
-          >
+          <div key={item}>
             {index === cardNum ? (
-              <PortFolioContents>{item}</PortFolioContents>
+              cardNum === 0 ? (
+                <div className="flex flex-row">
+                  <SmallPortFolioContents
+                    cardNum={PORTFOLIO_LENGTH}
+                    direction="left"
+                    isTurn={isTurn}
+                    setCardNum={setCardNum}
+                    setIsTurn={setIsTurn}
+                  >
+                    {tailList[1]}
+                  </SmallPortFolioContents>
+                  <PortFolioContents setOpenDetail={setOpenDetail}>
+                    {item}
+                  </PortFolioContents>
+                </div>
+              ) : cardNum === PORTFOLIO_LENGTH - 1 ? (
+                <div className="flex flex-row">
+                  <PortFolioContents setOpenDetail={setOpenDetail}>
+                    {item}
+                  </PortFolioContents>
+                  <SmallPortFolioContents
+                    cardNum={-1}
+                    direction="right"
+                    isTurn={isTurn}
+                    setCardNum={setCardNum}
+                    setIsTurn={setIsTurn}
+                  >
+                    {tailList[0]}
+                  </SmallPortFolioContents>
+                </div>
+              ) : (
+                <PortFolioContents setOpenDetail={setOpenDetail}>
+                  {item}
+                </PortFolioContents>
+              )
             ) : index === cardNum + 1 ? (
-              <SmallPortFolioContentsRight
+              <SmallPortFolioContents
                 cardNum={cardNum}
+                direction="right"
                 isTurn={isTurn}
                 setCardNum={setCardNum}
                 setIsTurn={setIsTurn}
               >
                 {item}
-              </SmallPortFolioContentsRight>
+              </SmallPortFolioContents>
             ) : (
               index === cardNum - 1 && (
-                <SmallPortFolioContentsLeft
-                  key={item}
+                <SmallPortFolioContents
                   cardNum={cardNum}
+                  direction="left"
                   isTurn={isTurn}
                   setCardNum={setCardNum}
                   setIsTurn={setIsTurn}
                 >
                   {item}
-                </SmallPortFolioContentsLeft>
+                </SmallPortFolioContents>
               )
             )}
           </div>
         ))}
       </article>
+      {openDetail && <ContentsDetail setOpenDetail={setOpenDetail} />}
     </section>
   );
 };
