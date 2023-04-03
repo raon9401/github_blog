@@ -16,11 +16,16 @@ module.exports = {
           "0%": { transform: "scale(0)" },
           "100%": { transform: "scale(1)" },
         },
+        openSideNav: {
+          "0%": { transform: "translateX(-100%) " },
+          "100%": { transform: "translateX(0%) " },
+        },
       },
       animation: {
         turnRight: "turnRight 0.5s linear 1",
         turnLeft: "turnLeft 0.5s linear 1",
         openDetail: "openDetail 0.2s linear 1",
+        openSideNav: "openSideNav 0.2s linear 1",
       },
     },
   },

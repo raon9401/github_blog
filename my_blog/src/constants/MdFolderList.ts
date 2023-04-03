@@ -1,1 +1,1 @@
-export const MDFILE_LIST = ['mock2.md']
+export const MDFILE_LIST: string[] = ['mock2.md']

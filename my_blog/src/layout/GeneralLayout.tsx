@@ -6,7 +6,7 @@ interface GeneralLayoutProps {
 
 export const GeneralLayout = ({ children }: GeneralLayoutProps) => {
   return (
-    <section className="w-full h-full flex flex-grow">
+    <section className="w-full h-full flex flex-col">
       <Sidenav />
       {children}
     </section>

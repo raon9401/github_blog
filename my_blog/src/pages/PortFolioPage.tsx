@@ -26,19 +26,19 @@ export const PortFolioPage = () => {
   }, [isTurn]);
 
   return (
-    <section className="contents_base flex justify-center items-center bg-slate-200 relative overflow-hidden">
+    <section className="contents_base flex justify-center items-center bg-slate-200 overflow-hidden">
       <BsGearWideConnected
         size="500"
         className={`${isTurn === "rightTurn" && "animate-turnRight"} ${
           isTurn === "leftTurn" && "animate-turnLeft"
         } opacity-25`}
       />
-      <article className="absolute flex flex-grow">
+      <article className="absolute flex flex-row">
         {MOCK_PORTFOLIO_LIST.map((item, index) => (
           <div key={item}>
             {index === cardNum ? (
               cardNum === 0 ? (
-                <div className="flex flex-row">
+                <div className="flex flex-row ">
                   <SmallPortFolioContents
                     cardNum={PORTFOLIO_LENGTH}
                     direction="left"
@@ -53,7 +53,7 @@ export const PortFolioPage = () => {
                   </PortFolioContents>
                 </div>
               ) : cardNum === PORTFOLIO_LENGTH - 1 ? (
-                <div className="flex flex-row">
+                <div className="flex flex-row ">
                   <PortFolioContents setOpenDetail={setOpenDetail}>
                     {item}
                   </PortFolioContents>
